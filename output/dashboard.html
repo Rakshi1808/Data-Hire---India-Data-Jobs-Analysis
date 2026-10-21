@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data-Hire | India Data Jobs Market Intelligence 2025</title>
+    
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+        :root {
+            --bg-base: #07090e;
+            --bg-surface: rgba(15, 20, 32, 0.75);
+            --bg-card: #0e1320;
+            --bg-card-hover: #121829;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-highlight: rgba(99, 102, 241, 0.45);
+            
+            --accent-indigo: #6366f1;
+            --accent-cyan: #06b6d4;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            --accent-violet: #8b5cf6;
+            
+            --gradient-primary: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+            --gradient-emerald: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+            --gradient-sunset: linear-gradient(135deg, #f59e0b 0%, #f43f5e 100%);
+            --gradient-surface: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
+            
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            
+            --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            --shadow-hover: 0 20px 40px -15px rgba(99, 102, 241, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            letter-spacing: -0.01em;
+        }
+        
+        /* Modern Ambient Lighting Background */
+        .ambient-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 85% 25%, rgba(6, 182, 212, 0.10) 0%, transparent 40%),
+                radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.06) 0%, transparent 50%);
+        }
+        
+        /* Header */
+        header {
+            padding: 1.25rem 3.5rem;
+            border-bottom: 1px solid var(--border-subtle);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(7, 9, 14, 0.85);
+        }
+        
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 800;
+            font-size: 1.15rem;
+            color: #ffffff;
+            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35);
+        }
+        
+        .logo-text h1 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .logo-text span {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--accent-cyan);
+            letter-spacing: 0.02em;
+            display: block;
+        }
+        
+        .header-meta {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0.85rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 9999px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--accent-emerald);
+        }
+        
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent-emerald);
+            box-shadow: 0 0 10px var(--accent-emerald);
+            animation: pulseDot 2s infinite;
+        }
+        
+        @keyframes pulseDot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.85); }
+        }
+        
+        .meta-item {
+            text-align: right;
+        }
+        
+        .meta-item label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+            display: block;
+        }
+        
+        .meta-item span {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        /* Main Container */
+        main {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2.5rem 3.5rem 4rem;
+        }
+        
+        /* Hero Stats Grid */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .stat-card {
+            background: var(--bg-card);
+            background-image: var(--gradient-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 18px;
+            padding: 1.5rem;
+            position: relative;
+            box-shadow: var(--shadow-card);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-highlight);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-primary);
+        }
+        
+        .stat-card:nth-child(2)::before { background: var(--gradient-emerald); }
+        .stat-card:nth-child(3)::before { background: var(--gradient-sunset); }
+        .stat-card:nth-child(4)::before { background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%); }
+        .stat-card:nth-child(5)::before { background: linear-gradient(135deg, #06b6d4 0%, #10b981 100%); }
+        
+        .stat-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.6rem;
+        }
+        
+        .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2.15rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            line-height: 1.1;
+        }
+        
+        .stat-change {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--accent-emerald);
+            margin-top: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+        
+        /* Charts Grid */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .chart-card {
+            background: var(--bg-card);
+            background-image: var(--gradient-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 1.75rem;
+            box-shadow: var(--shadow-card);
+            transition: all 0.25s ease;
+        }
+        
+        .chart-card:hover {
+            border-color: rgba(99, 102, 241, 0.35);
+        }
+        
+        .chart-card.full-width {
+            grid-column: span 2;
+        }
+        
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .chart-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+        }
+        
+        .chart-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.75rem;
+            background: rgba(99, 102, 241, 0.12);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            border-radius: 9999px;
+            color: #818cf8;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 310px;
+        }
+        
+        .chart-container.tall {
+            height: 410px;
+        }
+        
+        /* Top Skills Section */
+        .skills-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.25rem;
+        }
+        
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+        }
+        
+        .skill-item {
+            background: var(--bg-card);
+            background-image: var(--gradient-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 1.1rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-card);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-item:hover {
+            border-color: rgba(6, 182, 212, 0.45);
+            transform: translateY(-2px);
+            background-color: var(--bg-card-hover);
+            box-shadow: 0 10px 25px -10px rgba(6, 182, 212, 0.2);
+        }
+        
+        .skill-name {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .skill-percent {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            background: rgba(6, 182, 212, 0.1);
+            padding: 0.2rem 0.55rem;
+            border-radius: 6px;
+            border: 1px solid rgba(6, 182, 212, 0.2);
+        }
+        
+        /* Key Insights Grid */
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .insight-card {
+            background: var(--bg-card);
+            background-image: var(--gradient-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 1.75rem;
+            box-shadow: var(--shadow-card);
+            transition: all 0.25s ease;
+            position: relative;
+        }
+        
+        .insight-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+        }
+        
+        .insight-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            margin-bottom: 1.1rem;
+        }
+        
+        .insight-icon.blue { background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.3); }
+        .insight-icon.green { background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); }
+        .insight-icon.purple { background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); }
+        
+        .insight-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            color: var(--text-primary);
+        }
+        
+        .insight-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+        
+        .insight-highlight {
+            color: var(--accent-emerald);
+            font-weight: 700;
+        }
+        
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-subtle);
+            padding: 2.5rem 3.5rem;
+            background: rgba(7, 9, 14, 0.95);
+        }
+        
+        .footer-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-brand {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .footer-meta {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            padding: 0.45rem 0.9rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+            background: rgba(255, 255, 255, 0.02);
+            transition: all 0.2s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #ffffff;
+            border-color: var(--accent-indigo);
+            background: rgba(99, 102, 241, 0.1);
+        }
+        
+        /* Responsive Breakpoints */
+        @media (max-width: 1200px) {
+            .hero-stats { grid-template-columns: repeat(3, 1fr); }
+            .skills-grid { grid-template-columns: repeat(3, 1fr); }
+            .insights-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        @media (max-width: 768px) {
+            header, main, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); }
+            .charts-grid { grid-template-columns: 1fr; }
+            .chart-card.full-width { grid-column: span 1; }
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            .insights-grid { grid-template-columns: 1fr; }
+            .header-content, .footer-content { flex-direction: column; gap: 1.25rem; text-align: center; }
+            .meta-item { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient-glow"></div>
+    
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">DH</div>
+                <div class="logo-text">
+                    <h1>Data-Hire</h1>
+                    <span>India Job Market Intelligence</span>
+                </div>
+            </div>
+            <div class="header-meta">
+                <div class="status-pill">
+                    <span class="status-dot"></span>
+                    <span>1,200+ Jobs Live</span>
+                </div>
+                <div class="meta-item">
+                    <label>Data Source</label>
+                    <span>Naukri.com Patterns</span>
+                </div>
+                <div class="meta-item">
+                    <label>Last Updated</label>
+                    <span id="updateDate">–</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <!-- Hero Stats -->
+        <section class="hero-stats">
+            <div class="stat-card"><div class="stat-label">Total Jobs Analyzed</div><div class="stat-value" id="statJobs">–</div><div class="stat-change" id="statJobsSub">&nbsp;</div></div>
+            <div class="stat-card"><div class="stat-label">Unique Companies</div><div class="stat-value" id="statCompanies">–</div><div class="stat-change">Across all tiers</div></div>
+            <div class="stat-card"><div class="stat-label">Average Salary</div><div class="stat-value" id="statSalary">–</div><div class="stat-change" id="statSalarySub">Per annum</div></div>
+            <div class="stat-card"><div class="stat-label">Top City Hub</div><div class="stat-value" id="statCity">–</div><div class="stat-change" id="statCitySub">&nbsp;</div></div>
+            <div class="stat-card"><div class="stat-label">Most In-Demand</div><div class="stat-value" id="statSkill">–</div><div class="stat-change" id="statSkillSub">&nbsp;</div></div>
+        </section>
+
+        <!-- Charts Grid -->
+        <section class="charts-grid">
+            <div class="chart-card"><div class="chart-header"><h3 class="chart-title">Jobs by City Distribution</h3><span class="chart-badge">Geographic</span></div><div class="chart-container"><canvas id="cityChart"></canvas></div></div>
+            <div class="chart-card"><div class="chart-header"><h3 class="chart-title">Jobs by Role Category</h3><span class="chart-badge">Roles</span></div><div class="chart-container"><canvas id="roleChart"></canvas></div></div>
+            <div class="chart-card"><div class="chart-header"><h3 class="chart-title">Salary by Experience Level</h3><span class="chart-badge">Compensation</span></div><div class="chart-container"><canvas id="salaryChart"></canvas></div></div>
+            <div class="chart-card"><div class="chart-header"><h3 class="chart-title">Salary Brackets Distribution</h3><span class="chart-badge">Ranges</span></div><div class="chart-container"><canvas id="bracketChart"></canvas></div></div>
+            <div class="chart-card full-width"><div class="chart-header"><h3 class="chart-title">Top 15 Hiring Companies</h3><span class="chart-badge">Employers</span></div><div class="chart-container tall"><canvas id="companyChart"></canvas></div></div>
+        </section>
+
+        <!-- Top Skills Section -->
+        <section class="skills-section">
+            <div class="section-header"><h2 class="section-title">🔥 Top 10 Most Demanded Skills</h2></div>
+            <div class="skills-grid" id="skillsGrid"></div>
+        </section>
+
+        <!-- Key Insights Grid -->
+        <section class="insights-grid">
+            <div class="insight-card"><div class="insight-icon blue">💡</div><h4 class="insight-title">Entry-Level Opportunity</h4><p class="insight-text" id="insEntry"></p></div>
+            <div class="insight-card"><div class="insight-icon green">📍</div><h4 class="insight-title">Location Matters</h4><p class="insight-text" id="insLocation"></p></div>
+            <div class="insight-card"><div class="insight-icon purple">💰</div><h4 class="insight-title">Product Companies Pay More</h4><p class="insight-text" id="insProduct"></p></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div class="footer-brand">Data-Hire — India Data Jobs Market Intelligence</div>
+                <div class="footer-meta">Analyzed with Python, SQLite, Pandas, and Chart.js</div>
+            </div>
+            <div class="footer-links">
+                <a href="../data/india_jobs_cleaned.csv" download>📥 Download Dataset</a>
+                <a href="https://github.com/Rakshi1808/Data-Hire---India-Data-Jobs-Analysis" target="_blank" rel="noopener">GitHub Project</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Real project data (generated by scripts/05_export_dashboard_data.py from data/india_jobs_cleaned.csv) -->
+    <script src="../data/dashboard_data.js"></script>
+    <script>
+    (function () {
+        Chart.defaults.color = '#94a3b8';
+        Chart.defaults.font.family = "'Plus Jakarta Sans', sans-serif";
+        
+        // Modern High-Contrast Dashboard Palette
+        const palette = [
+            '#6366f1', // Indigo
+            '#06b6d4', // Cyan
+            '#10b981', // Emerald
+            '#f59e0b', // Amber
+            '#f43f5e', // Rose
+            '#8b5cf6', // Violet
+            '#14b8a6', // Teal
+            '#ec4899', // Pink
+            '#3b82f6', // Sky Blue
+            '#84cc16'  // Lime
+        ];
+
+        if (!window.JOBS_DATA) {
+            document.querySelector('main').insertAdjacentHTML('afterbegin',
+              '<p style="color:#ef4444;padding:1rem">Could not load ../data/dashboard_data.js. Run <code>python scripts/05_export_dashboard_data.py</code> and keep the folder structure.</p>');
+            return;
+        }
+
+        // ---- Load rows into objects ----
+        const { columns, rows } = window.JOBS_DATA;
+        const jobs = rows.map(r => Object.fromEntries(columns.map((c, i) => [c, r[i]])));
+        const N = jobs.length;
+
+        // ---- Helpers ----
+        const countBy = (arr, fn) => { const m = new Map(); arr.forEach(x => { const k = fn(x); m.set(k, (m.get(k) || 0) + 1); }); return m; };
+        const sorted = m => [...m.entries()].sort((a, b) => b[1] - a[1]);
+        const mean = a => a.length ? a.reduce((s, v) => s + v, 0) / a.length : 0;
+        const pct = (n, d) => (100 * n / d).toFixed(1);
+        const set = (id, html) => { document.getElementById(id).innerHTML = html; };
+        const withSalary = jobs.filter(j => j.salary_avg !== null);
+
+        // ---- Aggregations ----
+        const cities = sorted(countBy(jobs, j => j.location_clean));
+        const roles = sorted(countBy(jobs, j => j.role_category));
+        const companies = sorted(countBy(jobs, j => j.company));
+        const brackets = countBy(jobs, j => j.salary_bracket);
+        const skillCounts = new Map();
+        jobs.forEach(j => new Set((j.skills || '').split(',').map(s => s.trim()).filter(Boolean))
+            .forEach(s => skillCounts.set(s, (skillCounts.get(s) || 0) + 1)));
+        const skills = sorted(skillCounts);
+        const expOrder = ['Entry Level', 'Junior', 'Mid-Level', 'Senior', 'Expert'];
+        const expAvg = expOrder.map(l => +mean(withSalary.filter(j => j.experience_level === l).map(j => j.salary_avg)).toFixed(1));
+        const tierAvg = t => mean(withSalary.filter(j => j.company_tier === t).map(j => j.salary_avg));
+
+        // ---- Hero stats ----
+        const avgSalary = mean(withSalary.map(j => j.salary_avg));
+        set('statJobs', N.toLocaleString('en-IN'));
+        set('statJobsSub', 'From analyzed dataset');
+        set('statCompanies', companies.length);
+        set('statSalary', '₹' + avgSalary.toFixed(1) + 'L');
+        set('statSalarySub', 'Per annum · ' + withSalary.length + ' jobs disclose pay');
+        set('statCity', cities[0][0]);
+        set('statCitySub', pct(cities[0][1], N) + '% of all postings');
+        set('statSkill', skills[0][0]);
+        set('statSkillSub', pct(skills[0][1], N) + '% jobs require');
+        const dates = [...new Set(jobs.map(j => j.collected_date))].sort();
+        const d = new Date(dates[dates.length - 1] + 'T00:00:00');
+        set('updateDate', d.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' }));
+
+        // ---- Skills grid ----
+        set('skillsGrid', skills.slice(0, 10).map(([n, c]) =>
+            `<div class="skill-item"><span class="skill-name">${n}</span><span class="skill-percent">${pct(c, N)}%</span></div>`).join(''));
+
+        // ---- Insights ----
+        const entry = jobs.filter(j => j.experience_level === 'Entry Level');
+        set('insEntry', `<span class="insight-highlight">${entry.length} jobs (${pct(entry.length, N)}%)</span> are available for freshers with 0-1 years experience. Average starting salary is <span class="insight-highlight">₹${expAvg[0]} LPA</span>.`);
+        const remote = jobs.filter(j => j.location_clean === 'Remote').length;
+        set('insLocation', `<span class="insight-highlight">${cities[0][0]} leads</span> with ${pct(cities[0][1], N)}% of all data jobs. Remote jobs are only <span class="insight-highlight">${pct(remote, N)}%</span> — most require office presence.`);
+        const prod = tierAvg('product'), top = tierAvg('top_tier');
+        set('insProduct', `Product companies offer <span class="insight-highlight">₹${prod.toFixed(1)} LPA</span> average vs <span class="insight-highlight">₹${top.toFixed(1)} LPA</span> at top-tier IT services firms. That's a ${Math.round(100 * (prod / top - 1))}% premium.`);
+
+        // ---- Charts ----
+        const grid = { color: 'rgba(255, 255, 255, 0.05)' }, noBorder = { display: false };
+        const base = { responsive: true, maintainAspectRatio: false };
+        const hbar = { ...base, indexAxis: 'y', plugins: { legend: { display: false } },
+            scales: { x: { grid, border: noBorder }, y: { grid: { display: false }, border: noBorder } } };
+
+        new Chart(cityChart, { type: 'doughnut',
+            data: { labels: cities.map(c => c[0]), datasets: [{ data: cities.map(c => c[1]), backgroundColor: palette, borderWidth: 0, hoverOffset: 12 }] },
+            options: { ...base, cutout: '65%', plugins: { legend: { position: 'right', labels: { padding: 14, usePointStyle: true, boxWidth: 8 } } } } });
+
+        new Chart(roleChart, { type: 'bar',
+            data: { labels: roles.map(r => r[0]), datasets: [{ label: 'Number of Jobs', data: roles.map(r => r[1]), backgroundColor: palette, borderRadius: 10, borderSkipped: false }] },
+            options: hbar });
+
+        new Chart(salaryChart, { type: 'bar',
+            data: { labels: expOrder, datasets: [{ label: 'Avg Salary (LPA)', data: expAvg, backgroundColor: palette.slice(0, 5), borderRadius: 10, borderSkipped: false }] },
+            options: { ...base, plugins: { legend: { display: false } },
+                scales: { y: { grid, border: noBorder, ticks: { callback: v => '₹' + v + 'L' } }, x: { grid: { display: false }, border: noBorder } } } });
+
+        const bOrder = ['< 5 LPA', '5-10 LPA', '10-20 LPA', '20-35 LPA', '35+ LPA', 'Not Disclosed'];
+        new Chart(bracketChart, { type: 'pie',
+            data: { labels: bOrder, datasets: [{ data: bOrder.map(b => brackets.get(b) || 0), backgroundColor: [...palette.slice(0, 5), '#334155'], borderWidth: 0, hoverOffset: 15 }] },
+            options: { ...base, plugins: { legend: { position: 'right', labels: { padding: 12, usePointStyle: true, boxWidth: 8 } } } } });
+
+        const topCo = companies.slice(0, 15);
+        new Chart(companyChart, { type: 'bar',
+            data: { labels: topCo.map(c => c[0]), datasets: [{ label: 'Job Openings', data: topCo.map(c => c[1]), backgroundColor: '#6366f1', borderRadius: 8, borderSkipped: false }] },
+            options: hbar });
+    })();
+    </script>
+</body>
+</html>

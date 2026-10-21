@@ -1,0 +1,26 @@
+experience_level,role_category,job_count,avg_salary,min_salary,max_salary
+Entry Level,Business Analyst,37,4.4,3.4,5.3
+Entry Level,Data Analyst,47,4.2,3.4,5.3
+Entry Level,Data Scientist,27,4.0,3.4,5.3
+Entry Level,Python Developer,18,4.2,3.4,5.3
+Entry Level,SQL Developer,10,4.1,3.4,5.3
+Expert,Business Analyst,39,54.5,33.8,84.0
+Expert,Data Analyst,53,48.9,33.8,84.0
+Expert,Data Scientist,22,48.9,33.8,72.0
+Expert,Python Developer,17,47.1,33.8,72.0
+Expert,SQL Developer,14,47.1,33.8,72.0
+Junior,Business Analyst,57,7.6,6.3,9.8
+Junior,Data Analyst,96,7.8,6.3,9.8
+Junior,Data Scientist,57,8.0,6.3,9.8
+Junior,Python Developer,29,7.9,6.3,9.8
+Junior,SQL Developer,26,7.9,6.3,9.8
+Mid-Level,Business Analyst,59,14.5,11.7,18.2
+Mid-Level,Data Analyst,76,14.7,11.7,18.2
+Mid-Level,Data Scientist,39,14.2,11.7,18.2
+Mid-Level,Python Developer,19,14.6,11.7,18.2
+Mid-Level,SQL Developer,24,14.5,11.7,18.2
+Senior,Business Analyst,35,25.2,20.3,31.5
+Senior,Data Analyst,51,24.5,20.3,31.5
+Senior,Data Scientist,34,24.8,20.3,31.5
+Senior,Python Developer,18,24.5,20.3,31.5
+Senior,SQL Developer,12,24.4,20.3,31.5

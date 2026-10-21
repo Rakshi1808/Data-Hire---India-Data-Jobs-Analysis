@@ -1,0 +1,84 @@
+skill,job_count
+SQL,460
+Tableau,289
+Python,287
+Power BI,280
+Excel,271
+PostgreSQL,248
+Data Modeling,207
+MySQL,205
+ETL,188
+Dashboard Development,175
+VBA,165
+Pandas,163
+Reporting,158
+Google Analytics,158
+R,155
+A/B Testing,155
+Data Visualization,153
+Statistical Analysis,151
+Data Cleaning,149
+NumPy,142
+AWS,131
+Presentation,129
+User Stories,122
+UAT,121
+Scrum,121
+Agile,117
+Wireframing,116
+Communication,116
+Stakeholder Management,115
+Confluence,115
+JIRA,114
+Data Analysis,114
+Documentation,111
+Business Process Modeling,109
+Project Management,108
+MongoDB,107
+Keras,105
+Requirements Gathering,100
+Hadoop,96
+NLP,93
+Scikit-learn,89
+Neural Networks,88
+Machine Learning,88
+Feature Engineering,86
+Deep Learning,86
+Time Series,85
+TensorFlow,84
+MLOps,84
+Statistics,83
+PyTorch,82
+Spark,79
+Model Deployment,79
+Azure ML,79
+Computer Vision,77
+Data Structures,61
+CI/CD,59
+Linux,58
+Algorithms,58
+RabbitMQ,56
+Docker,55
+Git,53
+OOPs,52
+Flask,52
+Celery,52
+Django,51
+Snowflake,49
+Redis,49
+Oracle,49
+FastAPI,49
+REST API,48
+T-SQL,46
+Stored Procedures,46
+Performance Tuning,46
+Informatica,46
+SQL Server,45
+Data Warehousing,44
+Unit Testing,43
+Redshift,43
+NoSQL,42
+SSIS,41
+PL/SQL,41
+Microservices,39
+Database Design,36

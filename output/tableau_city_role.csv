@@ -1,0 +1,36 @@
+location,role_category,job_count,avg_salary
+Bangalore,Business Analyst,86,22.0
+Bangalore,Data Analyst,127,15.4
+Bangalore,Data Scientist,72,19.5
+Bangalore,Python Developer,51,19.5
+Bangalore,SQL Developer,38,17.2
+Chennai,Business Analyst,29,13.2
+Chennai,Data Analyst,28,20.5
+Chennai,Data Scientist,21,26.8
+Chennai,Python Developer,15,12.7
+Chennai,SQL Developer,7,11.8
+Delhi NCR,Business Analyst,45,21.7
+Delhi NCR,Data Analyst,74,19.3
+Delhi NCR,Data Scientist,32,13.7
+Delhi NCR,Python Developer,21,21.7
+Delhi NCR,SQL Developer,18,20.5
+Hyderabad,Business Analyst,40,18.3
+Hyderabad,Data Analyst,53,23.5
+Hyderabad,Data Scientist,32,17.7
+Hyderabad,Python Developer,24,19.2
+Hyderabad,SQL Developer,17,21.3
+Mumbai,Business Analyst,50,19.4
+Mumbai,Data Analyst,69,15.5
+Mumbai,Data Scientist,40,13.4
+Mumbai,Python Developer,13,11.3
+Mumbai,SQL Developer,16,16.5
+Pune,Business Analyst,29,15.6
+Pune,Data Analyst,57,21.2
+Pune,Data Scientist,31,12.8
+Pune,Python Developer,12,12.4
+Pune,SQL Developer,12,15.9
+Remote,Business Analyst,11,25.4
+Remote,Data Analyst,15,17.4
+Remote,Data Scientist,6,9.1
+Remote,Python Developer,5,23.1
+Remote,SQL Developer,4,21.9

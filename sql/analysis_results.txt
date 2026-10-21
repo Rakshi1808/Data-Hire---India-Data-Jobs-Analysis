@@ -1,0 +1,162 @@
+======================================================================
+INDIA JOB MARKET INTELLIGENCE 2025 - SQL ANALYSIS RESULTS
+======================================================================
+Generated: 2026-10-21 14:42:17
+Total Jobs Analyzed: 1200
+======================================================================
+
+
+==================================================
+📊 TOP 10 SKILLS IN DEMAND
+==================================================
+                skill  job_count  percentage
+                  SQL        460        38.3
+              Tableau        289        24.1
+               Python        287        23.9
+             Power BI        280        23.3
+                Excel        271        22.6
+           PostgreSQL        248        20.7
+        Data Modeling        207        17.3
+                MySQL        205        17.1
+                  ETL        188        15.7
+Dashboard Development        175        14.6
+
+
+==================================================
+📊 JOBS DISTRIBUTION BY CITY
+==================================================
+ location  job_count  percentage
+Bangalore        374        31.2
+Delhi NCR        190        15.8
+   Mumbai        188        15.7
+Hyderabad        166        13.8
+     Pune        141        11.8
+  Chennai        100         8.3
+   Remote         41         3.4
+
+
+==================================================
+📊 JOBS BY ROLE CATEGORY
+==================================================
+   role_category  job_count  avg_salary_lpa
+    Data Analyst        323            18.3
+Business Analyst        227            19.6
+  Data Scientist        179            17.0
+Python Developer        101            18.1
+   SQL Developer         86            18.0
+
+
+==================================================
+📊 SALARY BY EXPERIENCE LEVEL
+==================================================
+experience_level  job_count  avg_salary  min_salary  max_salary
+          Expert        145        50.0        33.8        84.0
+          Senior        150        24.7        20.3        31.5
+       Mid-Level        217        14.5        11.7        18.2
+          Junior        265         7.8         6.3         9.8
+     Entry Level        139         4.2         3.4         5.3
+
+
+==================================================
+📊 TOP 15 HIRING COMPANIES
+==================================================
+         company company_tier  job_count  avg_salary
+       Accenture     top_tier         50        17.8
+       Capgemini     top_tier         48        14.8
+           Wipro     top_tier         44        15.6
+   Tech Mahindra     top_tier         43        14.6
+HCL Technologies     top_tier         40        17.6
+             TCS     top_tier         38        21.3
+     LTIMindtree     top_tier         33        13.4
+         Infosys     top_tier         31        12.7
+       IBM India     top_tier         28        23.4
+       Cognizant     top_tier         27        17.6
+   Deutsche Bank          mnc         22        16.6
+         Zerodha      product         20        22.2
+  Happiest Minds     mid_tier         20        10.8
+          Zomato      product         19        15.0
+            Visa          mnc         19        19.4
+
+
+==================================================
+📊 SALARY BRACKETS DISTRIBUTION
+==================================================
+salary_bracket  job_count  percentage
+       < 5 LPA        109         9.1
+      5-10 LPA        295        24.6
+     10-20 LPA        217        18.1
+     20-35 LPA        167        13.9
+       35+ LPA        128        10.7
+ Not Disclosed        284        23.7
+
+
+==================================================
+📊 TOP SKILLS FOR DATA ANALYST
+==================================================
+                skill  count
+Dashboard Development    175
+                  VBA    165
+             Power BI    165
+              Tableau    164
+               Pandas    163
+        Data Modeling    162
+                Excel    161
+            Reporting    158
+               Python    158
+     Google Analytics    158
+
+
+==================================================
+📊 REMOTE VS OFFICE JOBS
+==================================================
+    work_type  job_count  avg_salary
+Office/Hybrid        881        18.3
+       Remote         35        19.4
+
+
+==================================================
+📊 ENTRY LEVEL JOBS (0-1 YRS)
+==================================================
+   role_category  jobs_available  avg_salary
+    Data Analyst              47         4.2
+Business Analyst              37         4.4
+  Data Scientist              27         4.0
+Python Developer              18         4.2
+   SQL Developer              10         4.1
+
+
+==================================================
+📊 SALARY BY COMPANY TIER
+==================================================
+company_tier  job_count  avg_salary  min_salary  max_salary
+     product        172        22.1         5.3        84.0
+         mnc        172        19.6         4.5        72.0
+    startups        133        17.1         4.2        66.0
+    top_tier        296        16.7         3.8        60.0
+    mid_tier        143        16.7         3.4        54.0
+
+
+==================================================
+📊 TOP CITY-ROLE COMBINATIONS
+==================================================
+ location    role_category  job_count
+Bangalore     Data Analyst        127
+Bangalore Business Analyst         86
+Delhi NCR     Data Analyst         74
+Bangalore   Data Scientist         72
+   Mumbai     Data Analyst         69
+     Pune     Data Analyst         57
+Hyderabad     Data Analyst         53
+Bangalore Python Developer         51
+   Mumbai Business Analyst         50
+Delhi NCR Business Analyst         45
+
+
+==================================================
+📊 JOB POSTING FRESHNESS
+==================================================
+posting_recency  job_count  percentage
+    Very Recent        335        27.9
+      This Week        483        40.3
+     This Month        315        26.3
+          Older         67         5.6
